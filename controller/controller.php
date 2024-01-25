@@ -1,5 +1,4 @@
 <?php
-session_start(); //demarrer la session
 
 require_once('../models/model.php');
 
@@ -8,6 +7,12 @@ require_once('../models/model.php');
 // var_dump($test);
 // echo"</pre>";
 //  die;
+session_start(); //demarrer la session
+if (empty($_SESSION["userConnect"])) {
+   header("locaion".WEBROOT);
+   exit;
+}
+
 
 $anneeEncours=findAnneeEncours();
 
@@ -52,13 +57,13 @@ if(isset($_REQUEST["action"])){
         $DemandeAc= findAllDemande();
         require_once("../views/demande.ac.html.php");
        }
-       elseif($_REQUEST["send"]=="logout "){
+       elseif($_REQUEST["action"]=="deconnect "){
         unset( $_SESSION["userConnect"]);
         session_destroy();
         header("location".WEBROOT);
        }
 
-elseif ($_REQUEST  ["action"]=="form-add-demande") {
+      if ($_REQUEST  ["action"]=="form-add-demande") {
            // traitement d'ajout
         $newDemande=[
                 "idD"=>uniqid(),

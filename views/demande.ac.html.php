@@ -1,3 +1,17 @@
+<?php
+// if(!isset($_GET["page"])) {
+//     $page=1;
+// }else{$page=$_GET["page"];}
+// $taille=count($demandeAC );
+// $nombre_ligne=5;
+// $nombre_page=ceil($taille/$nombre_ligne);
+// var_dump($$nombre_page );
+// $position=($page-1)*$nombre_ligne;
+// $tab=array_slice($demandeAC , $position, $nombre_ligne);
+// var_dump($tab);
+?>
+
+
 
 <html lang="en">
 <head>
@@ -32,9 +46,6 @@
         <div class="prof-body">
             <div class="container">
                 <h3>Annee Scolaire: 2023-2024</h3>
-                <!-- <a href="<?=WEBROOT;?>/?action=new-demande">
-                <button class="button" type="submit" name="action" value="">Nouveau</button>
-                </a> -->
                 <form>
                     <label style="margin-left: 3%;">Etat</label>
                     <select  name="etat" id="">
@@ -60,8 +71,8 @@
                     foreach ($demandeAC as  $value):?>
                     <tbody>
                             <tr>
-                                <td><?=$value["id_et"]?></td>
-                                <td><?=$value["date"]?></td>
+                                <td><?=$value["prenom"] ." ".$value["nom"]?></td>
+                                <td><?=$value["Id_class"]?></td>
                                 <td><?=$value["date"]?></td>
                                 <td><?=$value["type"]?></td>
                                 <td><?=$value["etat"]?></td>
@@ -71,6 +82,9 @@
                     <?php endforeach;?>
 
                 </table>
+                <!-- <?php for ($i=1; $i <=$nombre_page ; $i++):?>
+                  <a href="<?=WEBROOT;?>/?action=show-demande"><?= $i?>"><?= $i ?> </a>
+                <?php endfor?> -->
             </div>
     </section>
 </body>

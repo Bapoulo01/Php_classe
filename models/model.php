@@ -13,9 +13,8 @@ function findAllUsers():array{
 
 // fonction qui retourne les annees
 function fillAllEtudiant():array{
- 
-  $Etudiants =[];
   $users = findAllUsers();
+  $Etudiants =[];
   foreach ($users as $user) { //authentification
     if ($user["role"]=="ROLE_ETUDIANT") {
       $Etudiants[]=$user;
@@ -25,16 +24,38 @@ function fillAllEtudiant():array{
   return $Etudiants ;
 }
 
+//fonction pour la connexion
+function findEtuduantsById($etudiantId):array|null{
+  $Etudiants =fillAllEtudiant(); //recuperer les user
+  foreach ($Etudiants as $etudiant) { //authentification
+    if ($etudiant["id"]==$etudiantId) {
+      // var_dump($etudiant);
+      // die(ok);
+      return $etudiant;
+    }
+  }
+   return null;
+}
+
 // fonction qui retourne les annees
 function findAllAnnee():array{
   $Annees=JsonToArr("annees");
   return $Annees;
 }
 
-// fonction qui retourne les annees
+// fonction qui retourne les demandes
 function findAllDemande():array{
   $Demandes=JsonToArr("Demandes");
-  return $Demandes;
+  $DemandesEtu=[];
+  foreach ($Demandes as $demande) { //recupere l'etudiantID
+    $etudiantId=$demande['id_et'];
+    $etudiant=findEtuduantsById($etudiantId);
+    //  var_dump($etudiant);
+    //   die(ok);
+    $DemandesEtu[]=array_merge($etudiant,$demande);
+  }
+
+  return $DemandesEtu;
 }
 
 //fonction pour la connexion
@@ -48,16 +69,7 @@ foreach ($users as $user) {
    return null;
 }
 
-//fonction pour la connexion
-// function findEtuduantsById(int $etudiantId,):array{
-//   $Etudiants =fillAllEtudiant(); //recuperer les user
-//   foreach ($Etudiants as $etudiant) { //authentification
-//     if ($etudiant["id_et"]==$etudiantId) {
-//       return $etudiant;
-//     }
-//   }
-//    return null;
-// }
+
 
 //fonction pour les annees en cours
 function findAnneeEncours():array{

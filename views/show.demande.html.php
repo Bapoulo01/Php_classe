@@ -25,7 +25,7 @@
                 <a href="<?=WEBROOT;?>/?action=show-demande"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-list "></span>Mes Demandes</a>
             <?php endif ?>
 
-            <a href="<?=WEBROOT;?>"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-sign-out" ></span>Se Déconnecter</a>
+            <a href="<?=WEBROOT;?>/action=deconnect "><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-sign-out" ></span>Se Déconnecter</a>
         </div>
         <div class="prof-body">
             <div class="container">

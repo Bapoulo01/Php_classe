@@ -52,7 +52,7 @@
             "date": "24\/03\/23",
             "motif": "Malade",
             "id_An": 2,
-            "id_et": 3
+            "id_et": 1
         },
         {
             "idD": 1,
@@ -61,7 +61,7 @@
             "date": "24\/03\/23",
             "motif": "Malade",
             "id_An": 2,
-            "id_et": 3
+            "id_et": 1
         },
         {
             "idD": "65a6f9665ff43",
@@ -88,7 +88,7 @@
             "date": "16\/01\/2024",
             "id_An": 2,
             "motif": "paiement",
-            "id_et": 3
+            "id_et": 2
         },
         {
             "idD": "65a702f0e5866",
@@ -97,7 +97,7 @@
             "date": "16\/01\/2024",
             "id_An": 2,
             "motif": "sdfghj",
-            "id_et": 3
+            "id_et": 1
         },
         {
             "idD": "65a702fcb4703",
@@ -106,7 +106,7 @@
             "date": "16\/01\/2024",
             "id_An": 2,
             "motif": "vn",
-            "id_et": 3
+            "id_et": 2
         },
         {
             "idD": "65a7094bb7faa",
@@ -115,7 +115,7 @@
             "date": "16\/01\/2024",
             "id_An": 2,
             "motif": "trer",
-            "id_et": 3
+            "id_et": 1
         },
         {
             "idD": "65a709da749c3",
@@ -142,7 +142,7 @@
             "date": "17\/01\/2024",
             "id_An": 2,
             "motif": "retard",
-            "id_et": 3
+            "id_et": 2
         },
         {
             "idD": "65ae94eea053b",
@@ -208,7 +208,7 @@
             "id": 3,
             "nom": "Diop",
             "prenom": "Awa",
-            "Id_class": "L1Design",
+            "Id_class": "",
             "login": "ac",
             "mdp": "p",
             "role": "ROLE_AC"
@@ -217,7 +217,7 @@
             "id": 4,
             "nom": "Ba",
             "prenom": "Amadou",
-            "Id_class": "L1Design",
+            "Id_class": "",
             "login": "rp",
             "mdp": "p",
             "role": "RP"
