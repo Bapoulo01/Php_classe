@@ -13,7 +13,6 @@
             <div class="profil"><img src="img/X.png" alt=""></div>
             <h3>Prénom & Nom:<?= $_SESSION["userConnect"]["prenom"]." ". $_SESSION["userConnect"]["nom"]?></h3>
             <h3>Année: <?= $anneeEncours["libAs"]?></h3>
-                  <h3>Classe: L2 Devweb</h3>
                   <h3>Role: <?= $_SESSION["userConnect"]["role"]?></h3>
             </div>
         
@@ -39,12 +38,9 @@
                             <button class="but" type="submit" name="action" value="form-add-demande">Envoyer</button>
                         </div>
                 
-                    </div>
-                   
-                    
+                    </div>   
                 </form>
                  
-    
             </div>
         </div>
     </section>

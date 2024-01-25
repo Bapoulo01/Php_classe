@@ -18,6 +18,9 @@ define("BD", "../bd/data.json");
     <?php if (isset($_REQUEST["action"])): ?>
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.css">
     <?php endif ?>
+    <?php if (isset($_REQUEST["action"])): ?>
+    <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.classe.css">
+    <?php endif ?>
     <?php if (!isset($_REQUEST["action"])): ?>
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/loging.css">
     <?php endif ?>

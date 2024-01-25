@@ -1,13 +1,13 @@
 <?php
-// if(!isset($_GET["page"])) {
-//     $page=1;
-// }else{$page=$_GET["page"];}
-// $taille=count($demandeAC );
-// $nombre_ligne=5;
-// $nombre_page=ceil($taille/$nombre_ligne);
-// var_dump($$nombre_page );
-// $position=($page-1)*$nombre_ligne;
-// $tab=array_slice($demandeAC , $position, $nombre_ligne);
+if(!isset($_GET["page"])) {
+    $page=1;
+}else{$page=$_GET["page"];}
+$taille=count($demandeAC );
+$nombre_ligne=5;
+$nombre_page=ceil($taille/$nombre_ligne);
+// var_dump($nombre_page );
+$position=($page-1)*$nombre_ligne;
+$tab=array_slice($demandeAC , $position, $nombre_ligne);
 // var_dump($tab);
 ?>
 
@@ -68,7 +68,7 @@
                     </thead>
 
                 <?php 
-                    foreach ($demandeAC as  $value):?>
+                    foreach ($tab as  $value):?>
                     <tbody>
                             <tr>
                                 <td><?=$value["prenom"] ." ".$value["nom"]?></td>
@@ -82,9 +82,9 @@
                     <?php endforeach;?>
 
                 </table>
-                <!-- <?php for ($i=1; $i <=$nombre_page ; $i++):?>
-                  <a href="<?=WEBROOT;?>/?action=show-demande"><?= $i?>"><?= $i ?> </a>
-                <?php endfor?> -->
+                <?php for ($i=1; $i <=$nombre_page ; $i++):?>
+                  <a href="<?=WEBROOT;?>/?action=show-demande-ac&page=<?= $i?>"><?= $i ?> </a>
+                <?php endfor?>
             </div>
     </section>
 </body>

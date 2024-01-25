@@ -1,3 +1,16 @@
+<?php
+if(!isset($_GET["page"])) {
+    $page=1;
+}else{$page=$_GET["page"];}
+$taille=count($DemandesEtu);
+$nombre_ligne=5;
+$nombre_page=ceil($taille/$nombre_ligne);
+// var_dump($nombre_page );
+$position=($page-1)*$nombre_ligne;
+$tab=array_slice($DemandesEtu , $position, $nombre_ligne);
+// var_dump($tab);
+?>
+
 
 <html lang="en">
 <head>
@@ -54,8 +67,7 @@
 
                 <?php 
             
-                    
-                    foreach ($DemandesEtu as  $value):?>
+                    foreach ($tab as  $value):?>
                     <tbody>
                             <tr>
                                 <td><?=$value["date"]?></td>
@@ -65,8 +77,10 @@
                             </tr> 
                     </tbody>
                     <?php endforeach;?>
-
                 </table>
+                <?php for ($i=1; $i <=$nombre_page ; $i++):?>
+                  <a href="<?=WEBROOT;?>/?action=show-demande&page=<?= $i?>"><?= $i ?> </a>
+                <?php endfor?>
             </div>
     </section>
 </body>

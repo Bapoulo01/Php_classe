@@ -11,6 +11,8 @@ function findAllUsers():array{
 
 
 
+
+
 // fonction qui retourne les annees
 function fillAllEtudiant():array{
   $users = findAllUsers();
@@ -42,6 +44,24 @@ function findAllAnnee():array{
   $Annees=JsonToArr("annees");
   return $Annees;
 }
+
+//foction des classe
+function findAllClasse(){
+  $classes=JsonToArr("classe");
+  return $classes;
+}
+
+//foction des classe
+function findClasse($idClasse):string|null{
+  $classe=JsonToArr("classe");
+  foreach ($classes as $key => $classe) {
+    if ($classe['idC']==idClasse) {
+      return $classe['libelleC'];
+    }
+  }
+  return $null;
+}
+
 
 // fonction qui retourne les demandes
 function findAllDemande():array{
@@ -97,6 +117,11 @@ foreach ($Demandes as $demande) {
 //ajout demande
 function addDemande(array $newDemande):void{
   arrayToJson($newDemande, "Demandes");
+}
+
+//ajout classe
+function addClasse(array $newClasse):void{
+   arrayToJson($newClasse, "classe");
 }
 
 ?>

@@ -29,6 +29,11 @@ if (isset($_POST["send"])) {
                  require_once('../views/demande.ac.html.php');
 
        }
+       elseif ($userConnect["role"]=="ROLE_RP") {
+        $_SESSION["userConnect"]=$userConnect;
+        $classe=findAllClasse();
+        require_once('../views/lister.classe.html.php');
+       }
     //  $DemandesEtu= findDemandeByEtudiantAndAnnee( $_SESSION["$userConnect"]["id"],$anneeEncours["idA"]);
         //  require_once('../views/show.demande.html.php');
     }else{
@@ -53,6 +58,13 @@ if(isset($_REQUEST["action"])){
        
      require_once("../views/form.demande.html.php");
     }
+    elseif($_REQUEST["action"]=="liste-classe"){
+        require_once('../views/lister.classe.html.php');
+       }
+       elseif($_REQUEST["action"]=="new-classe"){
+        require_once('../views/ajout.classe.html.php');
+       }
+
     elseif($_REQUEST["action"]=="show-demande-ac "){
         $DemandeAc= findAllDemande();
         require_once("../views/demande.ac.html.php");
@@ -81,6 +93,19 @@ if(isset($_REQUEST["action"])){
         // require_once('../views/show.demande.html.php');
     
     }
+    if ($_REQUEST  ["action"]=="form-add-classe") {
+        // traitement d'ajout
+     $newClasse=[
+        "idC"=>uniqid(),
+        "libelleC"=>$_POST["libClasse"]
+      
+         ];
+         addClasse($newClasse);
+ 
+         header("location:".WEBROOT."/?action=form-add-classe");
+     // require_once('../views/show.demande.html.php');
+ 
+ }
 }
      //Page par defaut
 else {

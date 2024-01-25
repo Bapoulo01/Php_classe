@@ -152,6 +152,24 @@
             "id_An": 2,
             "motif": "aaaaa",
             "id_et": 1
+        },
+        {
+            "idD": "65b223d6e9508",
+            "type": "Suspension",
+            "etat": "en cours",
+            "date": "25\/01\/2024",
+            "id_An": 2,
+            "motif": "renvois",
+            "id_et": 1
+        },
+        {
+            "idD": "65b2767400a08",
+            "type": "Absence",
+            "etat": "en cours",
+            "date": "25\/01\/2024",
+            "id_An": 2,
+            "motif": "malade",
+            "id_et": 1
         }
     ],
     "classe": [
@@ -166,7 +184,12 @@
         {
             "idC": 3,
             "libelleC": "L1Design"
+        },
+        {
+            "idC": "65b27a531344e",
+            "libelleC": "L1dev"
         }
+       
     ],
     "annees": [
         {
@@ -215,12 +238,12 @@
         },
         {
             "id": 4,
-            "nom": "Ba",
-            "prenom": "Amadou",
+            "nom": "Diop",
+            "prenom": "Rassoul",
             "Id_class": "",
             "login": "rp",
             "mdp": "p",
-            "role": "RP"
+            "role": "ROLE_RP"
         }
     ]
 }
