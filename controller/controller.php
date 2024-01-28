@@ -8,10 +8,7 @@ require_once('../models/model.php');
 // echo"</pre>";
 //  die;
 session_start(); //demarrer la session
-if (empty($_SESSION["userConnect"])) {
-   header("locaion".WEBROOT);
-   exit;
-}
+
 
 
 $anneeEncours=findAnneeEncours();
@@ -31,11 +28,9 @@ if (isset($_POST["send"])) {
        }
        elseif ($userConnect["role"]=="ROLE_RP") {
         $_SESSION["userConnect"]=$userConnect;
-        $classe=findAllClasse();
+        $classelist=findAllClasse();
         require_once('../views/lister.classe.html.php');
        }
-    //  $DemandesEtu= findDemandeByEtudiantAndAnnee( $_SESSION["$userConnect"]["id"],$anneeEncours["idA"]);
-        //  require_once('../views/show.demande.html.php');
     }else{
      $message="Mot de pass Incorrect";
          require_once('../views/loging.html.php');
@@ -59,13 +54,22 @@ if(isset($_REQUEST["action"])){
      require_once("../views/form.demande.html.php");
     }
     elseif($_REQUEST["action"]=="liste-classe"){
+        $classelist=findAllClasse();
         require_once('../views/lister.classe.html.php');
+       }
+       elseif($_REQUEST["action"]=="liste-etudiant"){
+            $etudiantlist=fillAllEtudiant();
+        require_once('../views/lister.etudiant.html.php');
        }
        elseif($_REQUEST["action"]=="new-classe"){
         require_once('../views/ajout.classe.html.php');
        }
+       elseif($_REQUEST["action"]=="new-etudiant"){
+       
+        require_once('../views/ajout.etudiant.html.php');
+       }
 
-    elseif($_REQUEST["action"]=="show-demande-ac "){
+    elseif($_REQUEST["action"]=="show-demande-ac"){
         $DemandeAc= findAllDemande();
         require_once("../views/demande.ac.html.php");
        }
@@ -97,18 +101,36 @@ if(isset($_REQUEST["action"])){
         // traitement d'ajout
      $newClasse=[
         "idC"=>uniqid(),
-        "libelleC"=>$_POST["libClasse"]
+        "libelleC"=>$_POST["libelle"]
       
          ];
          addClasse($newClasse);
  
-         header("location:".WEBROOT."/?action=form-add-classe");
+         header("location:".WEBROOT."/?action=liste-classe");
      // require_once('../views/show.demande.html.php');
  
  }
+
+ if ($_REQUEST  ["action"]=="form-add-etudiant") {
+    // traitement d'ajout
+    $newEtudiant=[
+    "id"=>uniqid(),
+    "nom"=>$_POST["nom"],
+    "prenom"=>$_POST["prenom"],
+    "login"=>$_POST["login"],
+    "mdp"=>$_POST["passwd"],
+    "role"=>"ROLE_ETUDIANT"
+  
+     ];
+     addEtudiant( $newEtudiant);
+
+     header("location:".WEBROOT."/?action=liste-etudiant");
+
+}
 }
      //Page par defaut
 else {
+  
     require_once('../views/loging.html.php');
 }
 

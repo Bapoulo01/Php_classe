@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    display: flex;
+}
+.Dashboard{
+    width: 20%;
+    height: 100%;
+    background-color: #16858C;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.profil{
+    width: 150px;
+    height: 100px;
+    background-image: url(Images/profi.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    margin:10% 35%;
+}
+.Dashboard a{
+    width: 90%;
+    height: 50px;
+    background-color: #16858C;
+    margin-bottom: 2%; 
+    border: 1px solid white; 
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    border-radius: 5px/5px;
+
+}
+.Dashboard  a:last-child{
+    border: 1px solid rgba(4, 4, 4, 0.46);
+    background-color: rgba(4, 4, 4, 0.46);
+    cursor: pointer; 
+}
+.Dashboard  a:hover{
+    background-color: rgba(4, 4, 4, 0.46);
+    border: 1px solid rgba(4, 4, 4, 0.46);
+    border-radius: 0px 15px 0px 10px;
+    color: white;
+}
+.prof-body{
+    width: 80%;
+    height: 100%;
+    /* background-color: aqua; */
+}
+.container{
+    width: 95%;
+    height: 90vh;
+    margin:3% 3%;
+    box-shadow: 0 0 5px gray,
+    0 0 10px gray;
+    background-color: white;
+}
+.container h3{
+    color: gray;
+    text-align: center;
+}
+.container .back{
+    width: 30px;
+    height: 30px;
+    margin: 2% 5px;
+    background-color: black;
+    border-radius: 100%;
+}
+form{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    /* background-color:red; */
+    border-radius: 10px/10px;
+    /* box-shadow: 0 0 5px gray,
+    0 0 10px gray; */
+    padding: 5%;
+}
+label{
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+input{
+    padding: 10px;
+    border: 1px solid gainsboro;
+    margin-bottom: 5%;
+    border-radius: 5px/5px;
+    margin-left: 2%;
+    background-color: gainsboro;
+    width: 20vw;
+
+}
+select{
+    padding: 10px;   
+    width: 85%;
+    margin-left: 5%;
+    background-color: gainsboro;
+    border: 1px solid gainsboro;
+}
+.but{
+    width: 120px;
+    height: 40px;
+    background-color: #16858C;
+    color: white;
+    margin: 10% 45%;
+    font-weight: bolder;
+    font-size: 18px;
+    border: 1px solid #16858C ;
+    border-radius: 5px/5px;
+    cursor: pointer;
+    
+}
+
+
+
+
+
+
+
+
+

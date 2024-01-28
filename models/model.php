@@ -45,13 +45,13 @@ function findAllAnnee():array{
   return $Annees;
 }
 
-//foction des classe
+//fonction des classe
 function findAllClasse(){
   $classes=JsonToArr("classe");
   return $classes;
 }
 
-//foction des classe
+//fonction des classe
 function findClasse($idClasse):string|null{
   $classe=JsonToArr("classe");
   foreach ($classes as $key => $classe) {
@@ -122,6 +122,11 @@ function addDemande(array $newDemande):void{
 //ajout classe
 function addClasse(array $newClasse):void{
    arrayToJson($newClasse, "classe");
+}
+
+//ajout etudiant
+function addEtudiant(array $newEtudiant):void{
+  arrayToJson($newEtudiant, "users");
 }
 
 ?>

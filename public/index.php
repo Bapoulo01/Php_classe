@@ -1,7 +1,7 @@
 
 <?php
 
-define("WEBROOT","http://localhost:9900");
+define("WEBROOT","http://localhost:8000");
 define("BD", "../bd/data.json");
 
 // require_once("../orm/orm.php");
@@ -21,12 +21,15 @@ define("BD", "../bd/data.json");
     <?php if (isset($_REQUEST["action"])): ?>
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.classe.css">
     <?php endif ?>
+    <?php if (isset($_REQUEST["action"])): ?>
+    <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.etudiant.css">
+    <?php endif ?>
     <?php if (!isset($_REQUEST["action"])): ?>
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/loging.css">
     <?php endif ?>
    
 
-    <link rel="stylesheet" href="">
+    <!-- <link rel="stylesheet" href=""> -->
 </head>
 <body>
 

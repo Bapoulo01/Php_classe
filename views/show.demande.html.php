@@ -17,6 +17,7 @@ $tab=array_slice($DemandesEtu , $position, $nombre_ligne);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <title>Test 01</title>
 </head>
 <body>
@@ -78,9 +79,13 @@ $tab=array_slice($DemandesEtu , $position, $nombre_ligne);
                     </tbody>
                     <?php endforeach;?>
                 </table>
-                <?php for ($i=1; $i <=$nombre_page ; $i++):?>
+                <div class="page">
+                    <a href=""><span class="fa fa-long-arrow-left"></span></a>
+                    <?php for ($i=1; $i <=$nombre_page ; $i++):?>
                   <a href="<?=WEBROOT;?>/?action=show-demande&page=<?= $i?>"><?= $i ?> </a>
                 <?php endfor?>
+                    <a href=""><span class="fa fa-long-arrow-right"></span></a>
+                </div>
             </div>
     </section>
 </body>

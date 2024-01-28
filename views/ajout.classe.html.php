@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.classe.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
     <title>ajout classe</title>
 </head>
@@ -41,10 +42,10 @@
             <div class="container">
                 <!-- <div ><a href="liste.classe.html"><span style="margin: 1% 3%;font-size: 30px;cursor: pointer;color: black;" class="fa fa-arrow-circle-left"></a></span></div> -->
                 <h3>AJOUTER UNE CLASSE </h3>
-                <form method="post" action="">
+                <form method="post"  action="<?=WEBROOT;?>">
                     <div class="box">
                        <label for="">Nom de la classe</label><br>
-                       <input type="text" name="libClasse" id=""> 
+                       <input type="text" name="libelle" id=""> 
                          <button class="but" type="submit" name="action" value="form-add-classe">Ajouter</button>
 
                     </div>
