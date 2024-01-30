@@ -133,13 +133,14 @@ thead td{
     border-bottom: 1px solid gainsboro;
 }
 form{
-    width: 40%;
+    width: 45%;
     height: 100px;
     /* background-color: aqua; */
     display: flex;
     box-shadow: none;
     align-items: center;
     margin-left: 2%;
+    /* margin-bottom: 2%; */
 }
 label{
     margin-bottom: 5px;
@@ -212,7 +213,7 @@ option{
     align-items: center;
     justify-content: space-around;
     left: 60%;
-    /* margin-top: 1%; */
+    /* margin-top: 2.5%; */
     transform: translate(-50%,-50%);
     /* box-shadow: 0 2px 20px 0 gainsboro; */
 /* border-radius: 50%; */

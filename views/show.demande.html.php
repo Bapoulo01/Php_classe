@@ -44,17 +44,17 @@ $tab=array_slice($DemandesEtu , $position, $nombre_ligne);
         <div class="prof-body">
             <div class="container">
                 <h3>Annee Scolaire: 2023-2024</h3>
-                <a href="<?=WEBROOT;?>/?action=new-demande">
-                <button class="button" type="submit" name="action" value="">Nouveau</button>
-                </a>
-                <form>
+                <a href="<?=WEBROOT;?>/?action=new-demande"><button class="button" type="submit" name="">Ajouter <span class="fa fa-plus" ></span></button></a>
+             
+                <form method="Post" action="<?=WEBROOT;?>">
                     <label style="margin-left: 3%;">Etat</label>
                     <select  name="etat" id="">
+                        <option value="">Tous les demandes</option>
                         <option value="En cours">En cours</option>
                         <option value="Refuser">Refuser</option>
                         <option value="accepter">Accepter</option>
                     </select>
-                    <button class="bout" type="submit">OK</button>
+                    <button class="bout" type="submit" name="ok ">OK</button>
                 </form>
                 <table class="table-style">
                     <thead>

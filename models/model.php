@@ -11,8 +11,6 @@ function findAllUsers():array{
 
 
 
-
-
 // fonction qui retourne les annees
 function fillAllEtudiant():array{
   $users = findAllUsers();
@@ -62,17 +60,39 @@ function findClasse($idClasse):string|null{
   return $null;
 }
 
+// fonction pour l'iD de la classe
+function findClasseById($idClasse):array|null{
+  $classes=JsonToArr("classe");
+  foreach ($classes as $key => $classe) {
+    if ($classe['idC']==$idClasse) {
+      return $classe;
+    }
+  }
+  return $null;
+}
 
-// fonction qui retourne les demandes
+// fonction pour l'iD de la classe
+function findEtudiantByClasseId($idClasse):array|null{
+  $Etudiants =fillAllEtudiant();
+  $Etu=[];
+  foreach ($Etudiants as $etudiant) {
+    if ($etudiant["Id_class"]) {
+      $Etu[]=$etudiant;
+    }
+  }
+      return $Etu;
+}
+
+// fonction qui retourne la fusion demande et etudiant
 function findAllDemande():array{
   $Demandes=JsonToArr("Demandes");
   $DemandesEtu=[];
   foreach ($Demandes as $demande) { //recupere l'etudiantID
     $etudiantId=$demande['id_et'];
     $etudiant=findEtuduantsById($etudiantId);
-    //  var_dump($etudiant);
-    //   die(ok);
-    $DemandesEtu[]=array_merge($etudiant,$demande);
+    $classe=findClasseById($etudiant["Id_class"]);
+    $merge=array_merge($classe,$etudiant); //merge classe et etudiant
+    $DemandesEtu[]=array_merge($merge,$demande);
   }
 
   return $DemandesEtu;
@@ -88,8 +108,6 @@ foreach ($users as $user) {
 }
    return null;
 }
-
-
 
 //fonction pour les annees en cours
 function findAnneeEncours():array{
@@ -129,4 +147,8 @@ function addEtudiant(array $newEtudiant):void{
   arrayToJson($newEtudiant, "users");
 }
 
-?>
+
+
+function getID(string $target){
+return count(JsonToArr($target))+1;
+}

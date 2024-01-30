@@ -9,8 +9,6 @@ require_once('../models/model.php');
 //  die;
 session_start(); //demarrer la session
 
-
-
 $anneeEncours=findAnneeEncours();
 
 if (isset($_POST["send"])) {
@@ -18,13 +16,10 @@ if (isset($_POST["send"])) {
     if( $userConnect!=null){
         $_SESSION["userConnect"]=$userConnect;  // authentification 
        if ($userConnect["role"]=="ROLE_ETUDIANT") {
-        //  require_once('../views/show.demande.html.php');
         header("location:".WEBROOT."/?action=show-demande");
-       }elseif ($userConnect["role"]=="ROLE_AC") {
-        // header("location:".WEBROOT."/?action=show-demande-ac");
-        $demandeAC= findAllDemande();
-                 require_once('../views/demande.ac.html.php');
-
+       }
+       elseif ($userConnect["role"]=="ROLE_AC") {
+        header("location:".WEBROOT."/?action=show-demande-ac");
        }
        elseif ($userConnect["role"]=="ROLE_RP") {
         $_SESSION["userConnect"]=$userConnect;
@@ -38,12 +33,10 @@ if (isset($_POST["send"])) {
         header("location".WEBROOT);
     }
     
-
 }else
 if(isset($_REQUEST["action"])){
     if ($_REQUEST["action"]!="send" && !isset($_SESSION["userConnect"]) ) {
         header("location".WEBROOT);
-    // require_once('../views/loging.html.php');
     exit;
 }
     if ($_GET["action"]=="show-demande") {
@@ -64,13 +57,19 @@ if(isset($_REQUEST["action"])){
        elseif($_REQUEST["action"]=="new-classe"){
         require_once('../views/ajout.classe.html.php');
        }
+       elseif($_REQUEST["action"]=="liste-etu-classe"){
+        $classe=findClasseById($_REQUEST["idClasse"]);
+        $etu_Class= findEtudiantByClasseId($_REQUEST["idClasse"]);
+        require_once('../views/liste.etu.classe.html.php');
+       }
        elseif($_REQUEST["action"]=="new-etudiant"){
-       
+        $classelist=findAllClasse();
+
         require_once('../views/ajout.etudiant.html.php');
        }
 
     elseif($_REQUEST["action"]=="show-demande-ac"){
-        $DemandeAc= findAllDemande();
+        $demandeAC= findAllDemande();
         require_once("../views/demande.ac.html.php");
        }
        elseif($_REQUEST["action"]=="deconnect "){
@@ -94,33 +93,31 @@ if(isset($_REQUEST["action"])){
              $_SESSION ["DemandesEtu"][]="newDemande"; //ajouter a la liste de demandes
 
             header("location:".WEBROOT."/?action=show-demande");
-        // require_once('../views/show.demande.html.php');
     
     }
     if ($_REQUEST  ["action"]=="form-add-classe") {
         // traitement d'ajout
      $newClasse=[
-        "idC"=>uniqid(),
+        "idC"=>getID("classe"),
         "libelleC"=>$_POST["libelle"]
       
          ];
          addClasse($newClasse);
- 
+
          header("location:".WEBROOT."/?action=liste-classe");
-     // require_once('../views/show.demande.html.php');
- 
  }
 
  if ($_REQUEST  ["action"]=="form-add-etudiant") {
+    
     // traitement d'ajout
     $newEtudiant=[
-    "id"=>uniqid(),
+    "id"=>getID("users"),
     "nom"=>$_POST["nom"],
     "prenom"=>$_POST["prenom"],
     "login"=>$_POST["login"],
     "mdp"=>$_POST["passwd"],
-    "role"=>"ROLE_ETUDIANT"
-  
+    "role"=>"ROLE_ETUDIANT",
+    "Id_class"=>$_POST["libelleC"]
      ];
      addEtudiant( $newEtudiant);
 

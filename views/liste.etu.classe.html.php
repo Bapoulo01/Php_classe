@@ -1,30 +1,14 @@
-<?php
-if(!isset($_GET["page"])) {
-    $page=1;
-}else{$page=$_GET["page"];}
-$taille=count($etudiantlist  );
-$nombre_ligne=5;
-$nombre_page=ceil($taille/$nombre_ligne);
-// var_dump($nombre_page );
-$position=($page-1)*$nombre_ligne;
-$tab=array_slice($etudiantlist  , $position, $nombre_ligne);
-// var_dump($tab);
-// die("ok")
-?>
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.classe.css">
+    <link rel="stylesheet" href="style.etudiant.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-
-    <title>liste classe</title>
+    <title>Liste des etudiant</title>
 </head>
 <body>
-<section>
-        <div class="Dashboard">
+    <section>
+    <div class="Dashboard">
             <div class="infos">
                 <div class="profil"><img src="img/X.png" alt=""></div>
                   <h3>Prénom & Nom:<?= $_SESSION["userConnect"]["prenom"]." ". $_SESSION["userConnect"]["nom"]?></h3>
@@ -50,36 +34,28 @@ $tab=array_slice($etudiantlist  , $position, $nombre_ligne);
             <a href="<?=WEBROOT;?>"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-sign-out" >Se Déconnecter</a>
         </div>
         <div class="prof-body">
-        <div class="container">
-                <h3>LISTE DES ETUDIANTS</h3>
-                <a href="<?=WEBROOT;?>/?action=new-etudiant"><button class="button" type="submit">Ajouter <span class="fa fa-plus" ></button></a>
+            <div class="container">
+                <div ><a href="liste.classe.html"><span style="margin: 1% 3%;font-size: 30px;cursor: pointer;color: black;" class="fa fa-arrow-circle-left"></a></span></div>
+                <h3>LISTE DES ETUDIANTS DE <?=$classe["libelleC"];?></h3>
                 <table class="table-style">
                     <thead>
                         <tr>
-                            <td>Prénom</td>
-                            <td>Nom</td>
-                            <td>Classe</td>
+                            <th>Prenom</th>
+                            <th>Nom</th>
                         </tr>
                     </thead>
-                    <?php foreach ($tab as  $value):?>
-                    <tbody>
-                        <tr>
-                            <td><?=$value["prenom"]?></td>
-                            <td><?=$value["nom"]?></td>
-                            <td><?=$value["Id_class"]?></td>
-                        </tr>
-                    </tbody>
-                    <?php endforeach;?>
+                    <?php foreach ($etu_Class as  $value):?>
+                        <tbody> 
+                           <tr>
+                               <td><?=$value["prenom"];?></td>
+                               <td><?=$value["nom"];?></td>
+
+                           </tr>
+                        </tbody>
+                        <?php endforeach ?>
                 </table>
-                <div class="page">
-                    <a href=""><span class="fa fa-long-arrow-left"></span></a>
-                    <?php for ($i=1; $i <=$nombre_page ; $i++):?>
-                  <a href="<?=WEBROOT;?>/?action=liste-etudiant&page=<?= $i?>"><?= $i ?> </a>
-                <?php endfor?>
-                    <a href=""><span class="fa fa-long-arrow-right"></span></a>
-                </div>
             </div>
         </div>
-        </section>
+    </section>
 </body>
 </html>

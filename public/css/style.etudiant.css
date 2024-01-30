@@ -21,12 +21,28 @@ section{
 
 }
 .profil{
-    width: 150px;
+    width: 100px;
     height: 100px;
-    background-image: url(Images/profi.jpg);
-    background-size: cover;
+    margin:10% 28%;
+}
+.profil img{
+    width: 100px;
+    height: 100px;
     border-radius: 100%;
-    margin:10% 35%;
+
+}
+.infos{
+    width: 100%;
+    height:250px;
+    background-color: rgba(4, 4, 4, 0.46);
+    /* border-bottom: 2px solid white; */
+}
+h3{
+    font-size: 18px;
+    margin-bottom: 1vh;
+    /* margin-left: 10%; */
+    color: white;
+    text-align: center;
 }
 .Dashboard a{
     width: 90%;
@@ -80,11 +96,14 @@ form{
     height: auto;
     margin: 0 auto;
     /* background-color:red; */
+    flex-wrap: wrap;
+    display: flex;
     border-radius: 10px/10px;
     /* box-shadow: 0 0 5px gray,
     0 0 10px gray; */
     padding: 5%;
 }
+.box{width: 80vw;height: 50px;margin-bottom: 3%;}
 label{
     margin-bottom: 5px;
     font-size: 22px;
@@ -102,16 +121,16 @@ input{
 select{
     padding: 10px;   
     width: 85%;
-    margin-left: 5%;
+    margin-left: 3%;
     background-color: gainsboro;
     border: 1px solid gainsboro;
+    /* margin-bottom: 10%; */
 }
 .but{
-    width: 120px;
+    width: 150px;
     height: 40px;
     background-color: #16858C;
     color: white;
-    margin: 10% 45%;
     font-weight: bolder;
     font-size: 18px;
     border: 1px solid #16858C ;
@@ -119,12 +138,3 @@ select{
     cursor: pointer;
     
 }
-
-
-
-
-
-
-
-
-

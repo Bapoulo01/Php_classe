@@ -4,10 +4,6 @@
 define("WEBROOT","http://localhost:8000");
 define("BD", "../bd/data.json");
 
-// require_once("../orm/orm.php");
-// jsonToArr();
-
-
 
 ?>
 <html lang="en">

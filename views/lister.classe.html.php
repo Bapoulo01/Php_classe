@@ -62,12 +62,12 @@ $tab=array_slice($classelist, $position, $nombre_ligne);
                             <td>Etudiants</td>
                         </tr>
                     </thead>
-                    <?php foreach ($classelist as  $value):?>
+                    <?php foreach ($tab as  $value):?>
                         <tbody>
                             <tr>
                             <td><?=$value["libelleC"]?></td>
                                 <td>
-                                    <a href=""><button class="bo" type="submit">Liste des Etudiants</button></a>
+                                    <a href="<?=WEBROOT;?>/?action=liste-etu-classe&idClasse=<?=$value["idC"]?>"><button class="bo" type="submit">Liste des Etudiants</button></a>
                                 </td>
                             </tr>
                         </tbody>

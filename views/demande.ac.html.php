@@ -73,7 +73,7 @@ $tab=array_slice($demandeAC , $position, $nombre_ligne);
                     <tbody>
                             <tr>
                                 <td><?=$value["prenom"] ." ".$value["nom"]?></td>
-                                <td><?=$value["Id_class"]?></td>
+                                <td><?=$value["libelleC"]?></td>
                                 <td><?=$value["date"]?></td>
                                 <td><?=$value["type"]?></td>
                                 <td><?=$value["etat"]?></td>

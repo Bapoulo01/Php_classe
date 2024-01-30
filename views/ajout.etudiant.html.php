@@ -1,25 +1,14 @@
-<?php
-// if(!isset($_GET["page"])) {
-//     $page=1;
-// }else{$page=$_GET["page"];}
-// $taille=count($classe );
-// $nombre_ligne=4;
-// $nombre_page=ceil($taille/$nombre_ligne);
-// // var_dump($nombre_page );
-// $position=($page-1)*$nombre_ligne;
-// $tab=array_slice($classe , $position, $nombre_ligne);
-// var_dump($tab);
-?>
 
-<!-- <html lang="en">
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=WEBROOT;?>/css/style.etudiant.css">
-
-    <title>liste classe</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <title>ajout etudiant</title>
 </head>
-<body> -->
+<body>
 <section>
         <div class="Dashboard">
             <div class="infos">
@@ -40,8 +29,8 @@
             <a href="<?=WEBROOT;?>/?action=show-demande">Mes Demandes</a>
         <?php endif ?>
         <?php if( $_SESSION["userConnect"]["role"]=="ROLE_RP"):?>
-            <a href="<?=WEBROOT;?>/?action=liste-classe">Liste classe</a>
-            <a href="<?=WEBROOT;?>/?action=liste-classe">Liste Etudiant</a>
+            <a href="<?=WEBROOT;?>/?action=liste-classe"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-list "></span>Liste classe</a>
+            <a href="<?=WEBROOT;?>/?action=liste-etudiant"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-list "></span>Liste Etudiant</a>
 
         <?php endif ?>
             <a href="<?=WEBROOT;?>"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-sign-out" >Se Déconnecter</a>
@@ -49,34 +38,34 @@
         <div class="prof-body">
         <div class="container">
                 <h3>AJOUTER UN ETUDIANT</h3>
-                <form id="form" method="post" action="<?=WEBROOT;?>">
-                    <div>
+                <form  method="post" action="<?=WEBROOT;?>">
+                    <div class="box">
                         <label>Prénom</label>
                         <input  type="text" name="prenom">
                         <label style="margin-left: 10%;">Nom</label>
                         <input  type="text" name="nom">
                     </div>
-                    <div >
+                    <div class="box" >
                         <label >Login</label>
                         <input  style="margin-left: 4%;" type="text" name="login">
                         <label style="margin-left: 5%;">password</label>
                          <input  type="text" name="passwd">
                     </div>    
-                    <div>
-                        <label style="margin-left: -2%;">Classe</label>
+                    <div class="box">
+                        <label style="margin-left: 2%;">Classe</label>
                         <select  name="libelleC" id="">
                             <option value=""></option>
-                            <option value="L1devweb">L1devweb</option>
-                            <option value="L1G">L1GL</option>
-                            <option value="L1Design">L1Design</option>
-                        </select><br>
+                            <?php foreach ( $classelist as $value):?>
+                                <option value="<?=$value["idC"]?>"><?=$value["libelleC"]?></option> 
+                            <?php endforeach;?>
+                        </select>
                     </div>
-                    <a href=""><button class="but" type="button" name="action" value="form-add-etudiant">Ajouter</button></a>
-            
+                    <button class="but" type="submit" name="action" value="form-add-etudiant">Ajouter</button>
                 </form>
                 
             </div>
         </div>
-        </section>
-<!-- </body>
-</html> -->
+    </section>
+</body>
+</html>
+

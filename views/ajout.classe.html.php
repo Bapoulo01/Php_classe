@@ -32,7 +32,7 @@
         <?php endif ?>
         <?php if( $_SESSION["userConnect"]["role"]=="ROLE_RP"):?>
             <a href="<?=WEBROOT;?>/?action=liste-classe"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-list "></span>Liste classe</a>
-            <a href="<?=WEBROOT;?>/?action=liste-classe"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-list "></span>Liste Etudiant</a>
+            <a href="<?=WEBROOT;?>/?action=liste-etudiant"><span style="color: white;size: 100px;margin: 5% 3%;" class="fa fa-list "></span>Liste Etudiant</a>
 
         <?php endif ?>
      
@@ -40,7 +40,6 @@
         </div>
         <div class="prof-body">
             <div class="container">
-                <!-- <div ><a href="liste.classe.html"><span style="margin: 1% 3%;font-size: 30px;cursor: pointer;color: black;" class="fa fa-arrow-circle-left"></a></span></div> -->
                 <h3>AJOUTER UNE CLASSE </h3>
                 <form method="post"  action="<?=WEBROOT;?>">
                     <div class="box">
